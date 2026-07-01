@@ -5,8 +5,7 @@
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)
 
 Simulates and visualizes how an apartment **absorbs, stores and releases**
-heat during a heatwave – making visible *why the apartment is still hot in the
-evening even though it cooled down outside long ago*.
+heat during a heatwave 
 
 ![Indoor vs. outdoor temperature during a heatwave](images/hero.png)
 
