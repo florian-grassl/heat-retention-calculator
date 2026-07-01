@@ -8,7 +8,11 @@ Simulates and visualizes how an apartment **absorbs, stores and releases**
 heat during a heatwave – making visible *why the apartment is still hot in the
 evening even though it cooled down outside long ago*.
 
-![Example figure](heat_load.png)
+![Indoor vs. outdoor temperature during a heatwave](images/hero.png)
+
+*Red = indoor air, brown dashed = storage mass, blue = outdoor, yellow = solar
+gain through the windows. Note how the indoor maximum arrives well after the
+outdoor one (the phase shift Δt) and how the apartment barely cools at night.*
 
 ---
 
@@ -95,6 +99,30 @@ returns the air change rate (ACH) for every point in time. With `smart=True`
 extra ventilation happens at night *only* when it is actually cooler outside
 than inside – otherwise an open window would provide no cooling. The ACH enters
 the air node as a time-dependent ventilation conductance `H_V = ACH · V · ρ · c / 3600`.
+
+## What actually helps? (scenario comparison)
+
+The CLI can run two scenarios side by side. On the synthetic heatwave the
+difference is striking.
+
+**Shutters / external shading** – the single most effective measure. Blocking
+the solar gain before it enters keeps the indoor peak about **10 K lower**:
+
+![Indoor temperature with vs. without shutters](images/scenario_shading.png)
+
+```bash
+python cli.py --synthetic --compare-shading
+```
+
+**Night ventilation** – flushing the storage mass with cool night air helps
+too, though for a heavy apartment the effect is more modest (**~3 K**) because
+the thermal mass barely discharges over a multi-day heatwave:
+
+![Indoor temperature with vs. without night ventilation](images/scenario_ventilation.png)
+
+```bash
+python cli.py --synthetic --compare-ventilation
+```
 
 ## Input data
 

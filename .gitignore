@@ -10,9 +10,9 @@ __pycache__/
 venv/
 env/
 
-# Generated outputs (keep the README example image)
+# Generated outputs (committed figures live in images/)
 *.png
-!heat_load.png
+!images/*.png
 *.csv
 
 # OS / editor
