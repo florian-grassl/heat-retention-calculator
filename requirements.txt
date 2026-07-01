@@ -1,0 +1,12 @@
+# Core dependencies
+numpy>=1.24
+requests>=2.28
+matplotlib>=3.6
+PyYAML>=6.0
+
+# Optional: smoother integration (scipy) and interactive dashboard (streamlit)
+scipy>=1.10
+streamlit>=1.30
+
+# Development / tests
+pytest>=7.0

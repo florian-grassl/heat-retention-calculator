@@ -1,0 +1,28 @@
+# Example configuration: top-floor apartment with a lot of south-facing glass.
+# All lengths in metres, areas in m², U-values in W/(m²·K).
+
+name: "Top-floor apartment Munich (south-facing)"
+floor_area: 65          # m² floor area
+ceiling_height: 2.5     # m ceiling height  ->  air volume = 162.5 m³
+ventilation_ach: 0.4    # air changes per hour (windows closed during the day)
+
+# Windows per orientation. g_value = solar energy transmittance of the glazing.
+# shading: 1.0 = no shading, 0.25 = shutter (lets 25 % through).
+windows:
+  - {orientation: south, area: 8.0, u_value: 1.1, g_value: 0.6, shading: 1.0}
+  - {orientation: west,  area: 4.0, u_value: 1.1, g_value: 0.6, shading: 1.0}
+  - {orientation: east,  area: 3.0, u_value: 1.1, g_value: 0.6, shading: 1.0}
+  - {orientation: north, area: 2.0, u_value: 1.1, g_value: 0.6, shading: 1.0}
+
+# Opaque exterior surfaces (walls, roof) -- no direct solar gain through glass.
+walls:
+  - {area: 55.0, u_value: 0.28}   # exterior walls
+  - {area: 65.0, u_value: 0.20}   # roof
+
+# Storage masses: material, area, effective thickness.
+# active_fraction limits the thermally active penetration depth (rough).
+storage:
+  - {material: wood,     area: 65.0,  thickness: 0.02,  active_fraction: 1.0}  # parquet
+  - {material: screed,   area: 65.0,  thickness: 0.06,  active_fraction: 0.6}  # screed under the parquet
+  - {material: plaster,  area: 120.0, thickness: 0.015, active_fraction: 1.0}  # wall plaster
+  - {material: brick,    area: 55.0,  thickness: 0.10,  active_fraction: 0.4}  # inner wall mass
